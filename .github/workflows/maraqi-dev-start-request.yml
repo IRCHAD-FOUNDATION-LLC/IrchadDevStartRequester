@@ -1,0 +1,10 @@
+name: Maraqi Dev Start Request
+
+on:
+  workflow_dispatch:
+
+jobs:
+  start-request:
+    uses: ./.github/workflows/irchad-dev-start-request.yml
+    with:
+      app_name: maraqi
