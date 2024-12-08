@@ -1,7 +1,7 @@
 on:
   workflow_call:
     inputs:
-      APP_NAME:
+      app_name:
         required: true
         type: string
 
@@ -11,8 +11,8 @@ jobs:
     steps:
       - name: Init Dev Start Request Time
         run: |
-          APP_NAME=`echo "${{ inputs.APP_NAME }}" | sed 's/ //g' | tr '[a-z]' '[A-Z]'`
-          app_name=`echo "${{ inputs.APP_NAME }}" | sed 's/ //g' | tr '[A-Z]' '[a-z]'`
+          APP_NAME=`echo "${{ inputs.app_name }}" | sed 's/ //g' | tr '[a-z]' '[A-Z]'`
+          app_name=`echo "${{ inputs.app_name }}" | sed 's/ //g' | tr '[A-Z]' '[a-z]'`
           echo app_name=$app_name >> $GITHUB_ENV
         
           echo ${APP_NAME}_DEV_START_REQUEST=\"$(date +'%Y-%m-%d %H:%M:%S')\" > ${app_name}_dev_start_request.txt
