@@ -4,16 +4,5 @@ on:
   workflow_dispatch:
 
 jobs:
-  request:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Init Start Request Time
-        run: |
-          echo AWS_DEV_START_REQUEST=\"$(date +'%Y-%m-%d %H:%M:%S')\" > aws_dev_start_request.txt
-          cat aws_dev_start_request.txt
-
-      - name: Upload Dev Env Start Request File
-        uses: actions/upload-artifact@v4
-        with:
-          name: aws-dev-start-request-artifact
-          path: aws_dev_start_request.txt
+  start-request:
+    uses: ./.github/workflows/aws-dev-start-request.yml
