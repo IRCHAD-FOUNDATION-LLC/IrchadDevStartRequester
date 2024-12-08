@@ -6,3 +6,5 @@ on:
 jobs:
   start-request:
     uses: ./.github/workflows/aws-dev-start-request.yml
+    with:
+      app_name: fitya
