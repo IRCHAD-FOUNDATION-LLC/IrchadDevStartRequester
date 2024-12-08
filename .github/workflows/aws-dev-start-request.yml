@@ -1,4 +1,4 @@
-name: AWS Dev Start Request
+name: Irchad Dev Start Request
 
 on:
   workflow_call:
