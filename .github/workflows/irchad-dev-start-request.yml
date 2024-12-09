@@ -2,26 +2,18 @@ name: Irchad Dev Start Request
 
 on:
   workflow_call:
-    inputs:
-      app_name:
-        required: true
-        type: string
 
 jobs:
   start-request:
     runs-on: ubuntu-latest
     steps:
       - name: Init Dev Start Request Time
-        run: |
-          APP_NAME=`echo "${{ inputs.app_name }}" | sed 's/ //g' | tr '[a-z]' '[A-Z]'`
-          app_name=`echo "${{ inputs.app_name }}" | sed 's/ //g' | tr '[A-Z]' '[a-z]'`
-          echo app_name=$app_name >> $GITHUB_ENV
-        
-          echo ${APP_NAME}_DEV_START_REQUEST=\"$(date +'%Y-%m-%d %H:%M:%S')\" > ${app_name}_dev_start_request.txt
-          cat ${app_name}_dev_start_request.txt
+        run: |        
+          echo AWS_DEV_START_REQUEST=\"$(date +'%Y-%m-%d %H:%M:%S')\" > aws_dev_start_request.txt
+          cat aws_dev_start_request.txt
 
       - name: Upload Dev Start Request File
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.app_name }}-dev-start-request-artifact
-          path: ${{ env.app_name }}_dev_start_request.txt
+          name: aws-dev-start-request-artifact
+          path: aws_dev_start_request.txt
