@@ -6,5 +6,3 @@ on:
 jobs:
   start-request:
     uses: ./.github/workflows/irchad-dev-start-request.yml
-    with:
-      app_name: fitya
